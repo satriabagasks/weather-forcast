@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peringatan Dini Cuaca</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="weather-warning-container">
+      <div class="warning-left">
+        <img src="warning-icon.png" alt="Warning Icon" class="warning-icon" />
+        <p>PERINGATAN DINI CUACA</p>
+      </div>
+      <div class="warning-right">
+        <div id="warning-content">
+          <!-- Dynamic content from JavaScript will be inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="img-popup" class="popup-container">
+      <span class="close-popup">&times;</span>
+      <img class="popup-content" id="popup-image" />
+    </div>
+
+    <script src="index.js"></script>
+    <!-- Link to the external JavaScript file -->
+  </body>
+</html>

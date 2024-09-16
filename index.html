@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediksi Cuaca 1 Hari ke Depan</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="date-container">
+        <div id="tanggal"></div>
+        <div class="waktu-container">
+          <div id="datetime-utc"></div>
+          <div id="datetime-wita"></div>
+        </div>
+      </div>
+    </header>
+    <a href="index.html"
+      ><img src="/icons/head.png" alt="" style="width: 100%"
+    /></a>
+
+    <!-- HEADER NAVIGATION -->
+    <nav class="nav-header">
+      <div class="container">
+        <!-- Navbar Toggle Button for Mobile View -->
+        <div class="navbar-toggle" id="navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- Navbar Menu -->
+        <ul class="nav-header-menu" id="navbar-menu">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Beranda</a>
+            <ul class="dropdown-menu">
+              <li><a href="visi-misi.html">Visi dan Misi</a></li>
+              <li><a href="#">Tugas dan Fungsi</a></li>
+              <li>
+                <a href="struktur-organisasi.html">Struktur Organisasi</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Cuaca</a>
+            <ul class="dropdown-menu">
+              <li><a href="kabupaten.html">Prakiraan Cuaca</a></li>
+              <li><a href="cuaca-wisata.html">Prakiraan Cuaca Wisata</a></li>
+              <li><a href="cuaca-bandara.html">Prakiraan Cuaca Bandara</a></li>
+              <li>
+                <a href="peringatan-3harian.html">Peringatan Dini 3 Harian</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="dropdown-toggle" href="gempa-dirasakan.html">Gempabumi</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Pelayanan Data</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Pelayanan Data Daring</a></li>
+              <li><a href="#">Biaya Layanan</a></li>
+              <li><a href="#">Alur Pelayanan</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Publik</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Aduan</a></li>
+              <li><a href="#">Kritik dan Saran</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-------------------------------------------------->
+    <div class="disemsinasi">
+      <section>
+        <h1>Prakiraan Cuaca</h1>
+        <nav class="hari">
+          <ul>
+            <li><a href="#" id="nav-hari-ini">Hari Ini</a></li>
+            <li><a href="#" id="nav-besok-hari">Besok Hari</a></li>
+            <li><a href="#" id="nav-lusa">Lusa</a></li>
+          </ul>
+        </nav>
+
+        <div id="weather">
+          <img class="legenda" src="/icons/legend_sus.jpg" alt="legenda" />
+          <h2>Prediksi Cuaca - <span id="current-date"></span></h2>
+          <div id="weather-data">Loading...</div>
+          <p>*Tanda waktu menggunakan Waktu Indonesia Tengah (WITA)</p>
+        </div>
+      </section>
+      <aside class="peringatan-dini">
+        <h1>Peringatan Dini</h1>
+        <div id="earthquake-info">
+          <div class="content-box">
+            <img
+              class="responsive-img popup-img"
+              src="https://arsip.nyphp.com/data/infografis_CSK.jpg"
+              alt="Belum terdapat peringatan dini"
+            />
+          </div>
+          <div class="content-box">
+            <img
+              class="responsive-img popup-img"
+              src="https://arsip.nyphp.com/data/infografis_text_CSK.jpg"
+              alt="-"
+            />
+          </div>
+          <div id="earthquake-info">
+            <h1>Data Gempa Terkini</h1>
+            <div id="earthquake-data">Loading...</div>
+            <a href="gempa-dirasakan.html" target="_blank" class="btn-gempa"
+              >Selengkapnya &rarr;</a
+            >
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Popup container -->
+    <div id="img-popup" class="popup-container">
+      <span class="close-popup">&times;</span>
+      <img class="popup-content" id="popup-image" />
+    </div>
+
+    <!-- KONTEN -->
+    <!-- Main Container -->
+    <h1>Citra Satelit</h1>
+    <div class="container-box">
+      <!-- Content Section 1 -->
+      <div class="content-box">
+        <h2>Satelit Sulawesi Barat</h2>
+        <img
+          class="responsive-img popup-img"
+          src="https://satelit.bmkg.go.id/IMAGE/ANIMASI/H08_EH_Sulbar_m18.gif"
+          alt="satelit sulbar"
+        />
+      </div>
+      <!-- Content Section 2 -->
+      <div class="content-box">
+        <h2>Radar Sulawesi Barat</h2>
+        <img
+          class="responsive-img popup-img"
+          src="https://inderaja.bmkg.go.id/Radar/MAJE_SingleLayerCRefQC.png?id=910750i1yu947udqgu9qs0i"
+          alt="satelit sulbar"
+        />
+      </div>
+      <!-- Content Section 3 -->
+      <div class="content-box">
+        <h2>Prakiraan Angin</h2>
+        <img
+          class="responsive-img popup-img"
+          src="https://cdn.bmkg.go.id/DataMKG/MEWS/angin/streamline_d1.jpg"
+          alt="satelit sulbar"
+        />
+      </div>
+      <!-- Content Section 4 -->
+      <div class="content-box">
+        <h2>Prakiraan Curah Hujan</h2>
+        <img
+          class="responsive-img popup-img"
+          src="https://cdn.bmkg.go.id/DataMKG/CEWS/pch/pch.bulan.1.cond1.png"
+          alt="satelit sulbar"
+        />
+      </div>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-address">
+          <h3>Stasiun Meteorologi Tampa Padang</h3>
+          <p>
+            Jl. Abdul Malik Pattana Endeng, Rangas, Kec. Simboro dan Kepulauan
+          </p>
+          <p>Telp. (0426) 2335551</p>
+          <p>Email: stamet.majene@bmkg.go.id</p>
+        </div>
+        <div class="footer-links">
+          <h3>Link Terkait</h3>
+          <ul>
+            <li>
+              <a target="_blank" href="https://www.bmkg.go.id/"
+                >&rsaquo; BMKG Pusat</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://www.stmkg.ac.id/"
+                >&rsaquo; STMKG</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://maritim.bmkg.go.id/"
+                >&rsaquo; Info Cuaca Maritim</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://web-aviation.bmkg.go.id/"
+                >&rsaquo; Info Cuaca Penerbangan</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://inatews.bmkg.go.id/"
+                >&rsaquo; InaTEWS</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Sosial Media Kami</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/infobmkgsulbar?mibextid=kFxxJD"
+              ><img style="width: 20px" src="/icons/logo-fb.png" alt="Facebook"
+            /></a>
+            <a href="https://www.instagram.com/bmkg.sulbar/"
+              ><img
+                style="width: 20px"
+                src="/icons/logo-ig.png"
+                alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img style="width: 20px" src="/icons/logo-yt.png" alt="Youtube"
+            /></a>
+            <a href="https://wa.me/628114226100"
+              ><img style="width: 20px" src="/icons/logo-wa.png" alt="Whatsapp"
+            /></a>
+          </div>
+          <h3>Aplikasi Mobile BMKG</h3>
+          <div class="download-icons">
+            <a href="https://apps.apple.com/id/app/info-bmkg/id1114372539"
+              ><img
+                style="width: 90px"
+                src="/icons/download-aps.png"
+                alt="Play Store"
+            /></a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.Info_BMKG&hl=id"
+              ><img
+                style="width: 90px"
+                src="/icons/download-gp.png"
+                alt="App Store"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Stasiun Meteorologi Tampa Padang Mamuju. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
